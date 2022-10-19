@@ -1,0 +1,43 @@
+{
+  "name": "daytheipc.com",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "watchify src/main.ts -p [ tsify --noImplicitAny ] -o public/main.js",
+    "oldstart": "tsc -w --target es6 --outDir public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Day-OS/day-os.github.io.git"
+  },
+  "author": "DayTheIPC",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Day-OS/day-os.github.io/issues"
+  },
+  "homepage": "https://github.com/Day-OS/day-os.github.io#readme",
+  "dependencies": {
+    "@gerhobbelt/markdown-it-inline-text-color": "^1.0.1-1",
+    "browserify": "^17.0.0",
+    "markdown-it": "^13.0.1",
+    "markdown-it-abbr": "^1.0.4",
+    "markdown-it-anchor": "^8.6.5",
+    "markdown-it-attrs": "^4.1.4",
+    "markdown-it-checkbox": "^1.1.0",
+    "markdown-it-container": "^3.0.0",
+    "markdown-it-deflist": "^2.1.0",
+    "markdown-it-footnote": "^3.0.3",
+    "markdown-it-html5-embed": "^0.3.3",
+    "markdown-it-imsize": "^2.0.1",
+    "markdown-it-kbd": "^2.2.2",
+    "markdown-it-mark": "^3.0.1",
+    "markdown-it-multimd-table": "^4.2.0",
+    "markdown-it-sub": "^1.0.0",
+    "markdown-it-sup": "^1.0.0",
+    "markdown-it-table-of-contents": "^0.6.0",
+    "markdown-it-toc": "^1.1.0",
+    "markdown-it-underline": "^1.0.1",
+    "tsify": "^5.0.4",
+    "typescript": "^4.8.4"
+  }
+}
