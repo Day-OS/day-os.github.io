@@ -21,11 +21,14 @@ console.log("a");
 
 
 async function getMarkDownDocument() { //Most compact way to return a fetch
-    const url = "http://srv.daytheipc.com/HeliClt.md"
-    const response = await fetch(url, {mode:"cors",
+    const url = "http://srv.daytheipc.com/test.md"
+    const response = await fetch(url, {mode:"cors",method:"GET",
     headers: {
-        'Access-Control-Allow-Origin':'*'
-      }
+        'Access-Control-Allow-Origin':'*',
+        'Access-Control-Allow-Methods': '*',
+        'Access-Control-Allow-Headers': '*',
+        'Access-Control-Allow-Cretendials': 'true'
+      },referrerPolicy: "unsafe-url" 
     }); 
     const markdownfile = await response.blob();
     console.log("oi");
@@ -33,6 +36,7 @@ async function getMarkDownDocument() { //Most compact way to return a fetch
     return markdownfile; //do here wathever with your json if you want to return
 }				//a specific part of it.
 
-getMarkDownDocument().then(resp => {
-    console.log(resp); //Here you get the function response and print it
+getMarkDownDocument().then(async resp => {
+    const content = await resp.text()
+    document.getElementsByClassName("md")[0].innerHTML = md.render(content);
 });

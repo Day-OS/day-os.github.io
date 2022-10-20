@@ -22630,19 +22630,23 @@ var md = require('markdown-it')()
 console.log("a");
 function getMarkDownDocument() {
     return __awaiter(this, void 0, void 0, function* () {
-        const url = "http://srv.daytheipc.com/HeliClt.md";
-        const response = yield fetch(url, { mode: "cors",
+        const url = "http://srv.daytheipc.com/test.md";
+        const response = yield fetch(url, { mode: "cors", method: "GET",
             headers: {
-                'Access-Control-Allow-Origin': '*'
-            }
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': '*',
+                'Access-Control-Allow-Headers': '*',
+                'Access-Control-Allow-Cretendials': 'true'
+            }, referrerPolicy: "unsafe-url"
         });
         const markdownfile = yield response.blob();
         console.log("oi");
         return markdownfile; //do here wathever with your json if you want to return
     });
 } //a specific part of it.
-getMarkDownDocument().then(resp => {
-    console.log(resp); //Here you get the function response and print it
-});
+getMarkDownDocument().then((resp) => __awaiter(void 0, void 0, void 0, function* () {
+    const content = yield resp.text();
+    document.getElementsByClassName("md")[0].innerHTML = md.render(content);
+}));
 
 },{"markdown-it":25,"markdown-it-abbr":6,"markdown-it-anchor":7,"markdown-it-attrs":8,"markdown-it-checkbox":11,"markdown-it-container":12,"markdown-it-deflist":13,"markdown-it-footnote":14,"markdown-it-html5-embed":15,"markdown-it-kbd":16,"markdown-it-mark":17,"markdown-it-multimd-table":18,"markdown-it-sub":20,"markdown-it-sup":21,"markdown-it-table-of-contents":22,"markdown-it-toc":23,"markdown-it-underline":24}]},{},[94]);
