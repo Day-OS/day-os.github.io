@@ -27,8 +27,10 @@ async function getMarkDownDocument() { //Most compact way to return a fetch
         'Access-Control-Allow-Origin':'*'
       }
     }); 
-    const json = await response.text();
-    return json; //do here wathever with your json if you want to return
+    const markdownfile = await response.blob();
+    console.log("oi");
+    
+    return markdownfile; //do here wathever with your json if you want to return
 }				//a specific part of it.
 
 getMarkDownDocument().then(resp => {

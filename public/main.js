@@ -22636,8 +22636,9 @@ function getMarkDownDocument() {
                 'Access-Control-Allow-Origin': '*'
             }
         });
-        const json = yield response.text();
-        return json; //do here wathever with your json if you want to return
+        const markdownfile = yield response.blob();
+        console.log("oi");
+        return markdownfile; //do here wathever with your json if you want to return
     });
 } //a specific part of it.
 getMarkDownDocument().then(resp => {
