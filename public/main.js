@@ -22609,10 +22609,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const markdown_it_anchor_1 = __importDefault(require("markdown-it-anchor"));
 var md = require('markdown-it')({ html: true })
     .use(require('markdown-it-multimd-table'))
     .use(require("markdown-it-abbr"))
-    .use(require("markdown-it-anchor"))
+    .use(require("markdown-it-anchor"), { permalink: markdown_it_anchor_1.default.permalink })
     .use(require("markdown-it-attrs"))
     .use(require("markdown-it-checkbox"))
     .use(require("markdown-it-container"))
@@ -22630,7 +22635,7 @@ var md = require('markdown-it')({ html: true })
 const queryString = window.location.search;
 function getMarkDownDocument() {
     return __awaiter(this, void 0, void 0, function* () {
-        const url = "http://srv.daytheipc.com/" + atob(queryString.replace("?p=", ""));
+        const url = "https://srv.daytheipc.com/" + atob(queryString.replace("?p=", ""));
         const response = yield fetch(url, { mode: "cors", method: "GET", cache: 'reload',
             headers: {
                 'Access-Control-Allow-Origin': '*',

@@ -1,27 +1,39 @@
 <head>
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <script type="module" src="public/main.js"></script>
+    <link rel="stylesheet" href="public/reset.css">
     <style>
-        *{
-            color: white;
-            font-family: "ＭＳ Ｐゴシック";
-            background-color: blue;
-        
+        @font-face {
+            font-family: 'DOS'; /*a name to be used later*/
+            src: url('public/moreperfectdos.ttf'); /*URL to font*/
         }
-        footer{
-            text-align: center;}
-    </style>
-    <img id="myImg" src="" alt="">
+        body{
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        footer, footer sup, footer a, footer a:hover, footer a:focus, footer a:active, footer a:visited{
+            text-align: center;
+            color: white;
+            font-family: "DOS";
+            margin-top: auto;
+            background-color: #131313;
+            }
+        
+        footer sup {
+            background-color: #f00;
+            border-radius: 3px;
+            padding: 0 2px;
+        }
 
+    </style>
 </head>
 
 <body>    
-    Under construction
-    <br>
-    I guess
-    <br><br>
     <div class="md"></div>
     
-    <footer>DaytheIPC <sup style="font-size: 6px;">NOT A TM</sup></footer>
+    <footer>
+            2022 DaytheIPC<sup style="font-size: 8px;">NOT A TM</sup> - <a href="https://srv.daytheipc.com/wtfpl.txt">WTFPL</a>
+    </footer>
 </body>
 
