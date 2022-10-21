@@ -19,27 +19,36 @@ var md: markdownit = require('markdown-it')({html:true})
             .use(require("markdown-it-underline"))
 //document.getElementsByTagName("body")[0].innerHTML = md.render("# {color: red} Oi {color}");
 const queryString = window.location.search;
-
+const canvas = document.getElementsByClassName("md")[0];
 
 
 
 async function getMarkDownDocument() { //Most compact way to return a fetch
     const url = "https://srv.daytheipc.com/" + atob(queryString.replace("?p=",""))
-    const response = await fetch(url, {mode:"cors",method:"GET",cache:'reload',
-    headers: {
-        'Access-Control-Allow-Origin':'*',
-        'Access-Control-Allow-Methods': '*',
-        'Access-Control-Allow-Headers': '*',
-        'Access-Control-Allow-Cretendials': 'true'
-      },referrerPolicy: "unsafe-url" 
-    }); 
-    const markdownfile = await response.blob();
-    console.log("oi");
-    
-    return markdownfile; //do here wathever with your json if you want to return
+    try {
+        const response = await fetch(url, {mode:"cors",method:"GET",cache:'reload',
+        headers: {
+            'Access-Control-Allow-Origin':'*',
+            'Access-Control-Allow-Methods': '*',
+            'Access-Control-Allow-Headers': '*',
+            'Access-Control-Allow-Cretendials': 'true'
+        },referrerPolicy: "unsafe-url" 
+        }); 
+        const markdownfile = await response.blob();
+        
+        return markdownfile;
+    } catch (error) {
+        return null
+    } //do here wathever with your json if you want to return
 }				//a specific part of it.
 
 getMarkDownDocument().then(async resp => {
+    if (resp == null) {
+        canvas.innerHTML = '<h1>OOPS! Something went wrong :(</h1> <img src="https://srv.daytheipc.com/public/mensad.gif">'
+        return
+    }
     const content = await resp.text()
-    document.getElementsByClassName("md")[0].innerHTML = md.render(content);
+    canvas.innerHTML = md.render(content);
 });
+    
+    
