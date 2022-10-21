@@ -1,4 +1,4 @@
-var md: markdownit = require('markdown-it')()
+var md: markdownit = require('markdown-it')({html:true})
             .use(require('markdown-it-multimd-table'))
             .use(require("markdown-it-abbr"))
             .use(require("markdown-it-anchor"))
@@ -16,13 +16,14 @@ var md: markdownit = require('markdown-it')()
             .use(require("markdown-it-toc"))
             .use(require("markdown-it-underline"))
 //document.getElementsByTagName("body")[0].innerHTML = md.render("# {color: red} Oi {color}");
-console.log("a");
+const queryString = window.location.search;
+
 
 
 
 async function getMarkDownDocument() { //Most compact way to return a fetch
-    const url = "http://srv.daytheipc.com/test.md"
-    const response = await fetch(url, {mode:"cors",method:"GET",
+    const url = "http://srv.daytheipc.com/" + atob(queryString.replace("?p=",""))
+    const response = await fetch(url, {mode:"cors",method:"GET",cache:'reload',
     headers: {
         'Access-Control-Allow-Origin':'*',
         'Access-Control-Allow-Methods': '*',
