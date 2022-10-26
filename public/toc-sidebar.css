@@ -1,0 +1,76 @@
+@keyframes toc-expand {
+    from {width: 30px;}
+    to {width: 200px;}
+}
+@keyframes toc-shrink {
+    from {width: 200px;}
+    to {width: 30px;}
+}
+
+@keyframes arrow-rotateleft {
+    from{transform: rotate(0deg)}
+    to{transform: rotate(90deg)}
+}
+@keyframes arrow-default {
+    from{transform: rotate(90deg)}
+    to{transform: rotate(0deg)}
+}
+
+.table-of-contents{
+  animation-name: toc-shrink;
+  animation-duration: 0.2s;
+  margin: 0;
+  padding: 0;
+  width: 30px;
+  background-color: #131313;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+.table-of-contents a, .table-of-contents ul {
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: "DOS";
+    text-decoration: none;
+    color:white;
+    padding-right: 10px;
+    list-style: decimal;
+}
+
+.table-of-contents > *{
+    visibility: hidden
+}
+.table-of-contents:hover{
+    animation-name: toc-expand;
+    animation-duration: 0.2s;
+    width: 200px;
+}
+.table-of-contents:hover > *{
+    visibility: visible
+}
+.table-of-contents::before{
+    background-color: white;
+    margin-top: 5px;
+    margin-left: 5px;
+    content: " ";
+    mask-image: url("http://srv.daytheipc.com/public/menu-icon.svg");
+    display: block;
+    mask-size: 20px 20px;
+    height: 20px; width: 20px;
+    mask-repeat: no-repeat;
+    padding-top: 10px;
+    animation-name: "arrow-default";
+    animation-duration: 0.2s;
+    transform: rotate(0deg);
+}
+
+.table-of-contents:hover::before{
+    animation-name: "arrow-rotateleft";
+    animation-duration: 0.2s;
+    transform: rotate(90deg);
+}
+
+.md * :not(.table-of-contents,.table-of-contents *), .md div:not(.table-of-contents), table, p{
+    margin-left: 40px;
+
+}
+footer {padding-left: 40px}

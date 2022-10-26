@@ -22609,15 +22609,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const markdown_it_anchor_1 = __importDefault(require("markdown-it-anchor"));
 var md = require('markdown-it')({ html: true })
     .use(require('markdown-it-multimd-table'))
     .use(require("markdown-it-abbr"))
-    .use(require("markdown-it-anchor"), { permalink: markdown_it_anchor_1.default.permalink })
+    .use(require("markdown-it-anchor"))
     .use(require("markdown-it-attrs"))
     .use(require("markdown-it-checkbox"))
     .use(require("markdown-it-container"))
@@ -22628,9 +22624,9 @@ var md = require('markdown-it')({ html: true })
     .use(require("markdown-it-mark"))
     .use(require("markdown-it-sub"))
     .use(require("markdown-it-sup"))
-    .use(require("markdown-it-table-of-contents"))
     .use(require("markdown-it-toc"))
-    .use(require("markdown-it-underline"));
+    .use(require("markdown-it-underline"))
+    .use(require("markdown-it-table-of-contents"));
 //document.getElementsByTagName("body")[0].innerHTML = md.render("# {color: red} Oi {color}");
 const queryString = window.location.search;
 const canvas = document.getElementsByClassName("md")[0];
@@ -22656,11 +22652,13 @@ function getMarkDownDocument() {
 } //a specific part of it.
 getMarkDownDocument().then((resp) => __awaiter(void 0, void 0, void 0, function* () {
     if (resp == null) {
-        canvas.innerHTML = '<h1>OOPS! Something went wrong :(</h1> <img src="https://srv.daytheipc.com/public/mensad.gif">';
         return;
     }
     const content = yield resp.text();
     canvas.innerHTML = md.render(content);
-}));
+})).catch((e) => {
+    canvas.innerHTML = '<h1>OOPS! Something went wrong :(</h1> <img src="https://srv.daytheipc.com/public/mensad.gif">';
+    console.error("[For the dev's eye only u.u] " + e);
+});
 
 },{"markdown-it":25,"markdown-it-abbr":6,"markdown-it-anchor":7,"markdown-it-attrs":8,"markdown-it-checkbox":11,"markdown-it-container":12,"markdown-it-deflist":13,"markdown-it-footnote":14,"markdown-it-html5-embed":15,"markdown-it-kbd":16,"markdown-it-mark":17,"markdown-it-multimd-table":18,"markdown-it-sub":20,"markdown-it-sup":21,"markdown-it-table-of-contents":22,"markdown-it-toc":23,"markdown-it-underline":24}]},{},[94]);
