@@ -49,10 +49,13 @@
 }
 .table-of-contents::before{
     background-color: white;
+    border-color: #131313;
+    border-width: 0.01px;
+    border-style: solid;
     margin-top: 5px;
     margin-left: 5px;
     content: " ";
-    mask-image: url("http://srv.daytheipc.com/public/menu-icon.svg");
+    mask-image: url("http://srv.daytheipc.com/public/arrow-icon.svg");
     display: block;
     mask-size: 20px 20px;
     height: 20px; width: 20px;
