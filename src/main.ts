@@ -1,10 +1,8 @@
 import anchor from "markdown-it-anchor";
 
 var md: markdownit = require('markdown-it')({html:true})
-            .use(require('markdown-it-multimd-table'))
+           .use(require('markdown-it-multimd-table'))
             .use(require("markdown-it-abbr"))
-            .use(require("markdown-it-anchor"))
-            .use(require("markdown-it-attrs"))
             .use(require("markdown-it-checkbox"))
             .use(require("markdown-it-container"))
             .use(require("markdown-it-deflist"))
@@ -14,9 +12,12 @@ var md: markdownit = require('markdown-it')({html:true})
             .use(require("markdown-it-mark"))
             .use(require("markdown-it-sub"))
             .use(require("markdown-it-sup"))
-            .use(require("markdown-it-toc"))
             .use(require("markdown-it-underline"))
-            .use(require("markdown-it-table-of-contents"))
+            .use(require("markdown-it-attrs"))
+            .use(require("markdown-it-anchor"), {tabIndex:false})
+            .use(require("markdown-it-table-of-contents"), {
+                "includeLevel": [1,2,3,4]
+              })
 //document.getElementsByTagName("body")[0].innerHTML = md.render("# {color: red} Oi {color}");
 const queryString = window.location.search;
 const canvas = document.getElementsByClassName("md")[0];

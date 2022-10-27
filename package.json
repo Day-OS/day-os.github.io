@@ -35,7 +35,6 @@
     "markdown-it-sub": "^1.0.0",
     "markdown-it-sup": "^1.0.0",
     "markdown-it-table-of-contents": "^0.6.0",
-    "markdown-it-toc": "^1.1.0",
     "markdown-it-underline": "^1.0.1",
     "tsify": "^5.0.4",
     "typescript": "^4.8.4"

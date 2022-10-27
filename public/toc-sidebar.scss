@@ -1,0 +1,97 @@
+@keyframes toc-expand {
+    from {width: 30px;}
+    to {width: 200px;}
+}
+@keyframes toc-shrink {
+    from {width: 200px;}
+    to {width: 30px;}
+}
+
+@keyframes arrow-rotateleft {
+    from{transform: rotate(0deg)}
+    to{transform: rotate(90deg)}
+}
+@keyframes arrow-default {
+    from{transform: rotate(90deg)}
+    to{transform: rotate(0deg)}
+}
+
+$icon-size: 20px;
+
+.table-of-contents{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow: hidden;
+    z-index: 3;
+    animation-name: toc-shrink;
+    animation-duration: 0.2s;
+    margin: 0;
+    padding: 0;
+    width: 30px;
+    background-color: #131313;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    a, ul{
+        font-family: Arial, Helvetica, sans-serif;
+        font-family: "DOS";
+        text-decoration: none;
+        color:white;
+        padding-right: 10px;
+        list-style: decimal;
+        &:hover{
+            color:darkgray
+        }
+    }
+    &::-webkit-scrollbar {
+        display: none;
+      }
+    &:hover{
+        animation-name: toc-expand;
+        animation-duration: 0.2s;
+        width: 200px;
+    }
+    > *{
+        visibility: hidden;
+    }
+    &:hover > *{
+        visibility: visible
+    }
+    &:before{
+        background-color: white;
+        border-color: #131313;
+        border-width: 0.01px;
+        border-style: solid;
+        margin-top: 5px;
+        margin-left: 5px;
+        content: " ";
+        mask-image: url("http://srv.daytheipc.com/public/arrow-icon.svg");
+        display: block;
+        mask-size: $icon-size $icon-size;
+        height: $icon-size; width: $icon-size;
+        mask-repeat: no-repeat;
+        padding-top: 10px;
+        animation-name: "arrow-default";
+        animation-duration: 0.2s;
+        transform: rotate(0deg);
+    }
+    &:hover::before{
+        animation-name: "arrow-rotateleft";
+        animation-duration: 0.2s;
+        transform: rotate(90deg);
+    }
+}
+
+.md * :not(.table-of-contents,.table-of-contents *), .md div:not(.table-of-contents), table, p{
+    margin-left: 40px;
+
+}
+
+
+
+
+
+
+
+
+footer {padding-left: 40px}

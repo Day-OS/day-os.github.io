@@ -1,0 +1,40 @@
+.md * :not(.table-of-contents, .table-of-contents *), .md div:not(.table-of-contents), table, p, h1, h2, h3, h4, .md pre {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.md pre {
+  display: block;
+  border-radius: 20px;
+  padding: 20px;
+  background-color: white;
+}
+.md pre code {
+  font-family: "BABYDoll";
+}
+
+.md a, .md ul, .md p {
+  font-family: "BABYDoll";
+}
+
+h1 {
+  font-size: 100px;
+}
+
+h2 {
+  font-size: 80px;
+}
+
+h3 {
+  font-size: 60px;
+}
+
+h4 {
+  font-size: 40px;
+}
+
+h1, h2, h3, h4 {
+  font-family: "KATHEN";
+  color: black;
+  -webkit-text-stroke: 1px white;
+}/*# sourceMappingURL=default-md.css.map */

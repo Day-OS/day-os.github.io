@@ -1,24 +1,76 @@
+@-webkit-keyframes toc-expand {
+  from {
+    width: 30px;
+  }
+  to {
+    width: 200px;
+  }
+}
 @keyframes toc-expand {
-    from {width: 30px;}
-    to {width: 200px;}
+  from {
+    width: 30px;
+  }
+  to {
+    width: 200px;
+  }
+}
+@-webkit-keyframes toc-shrink {
+  from {
+    width: 200px;
+  }
+  to {
+    width: 30px;
+  }
 }
 @keyframes toc-shrink {
-    from {width: 200px;}
-    to {width: 30px;}
+  from {
+    width: 200px;
+  }
+  to {
+    width: 30px;
+  }
 }
-
+@-webkit-keyframes arrow-rotateleft {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(90deg);
+  }
+}
 @keyframes arrow-rotateleft {
-    from{transform: rotate(0deg)}
-    to{transform: rotate(90deg)}
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(90deg);
+  }
+}
+@-webkit-keyframes arrow-default {
+  from {
+    transform: rotate(90deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
 }
 @keyframes arrow-default {
-    from{transform: rotate(90deg)}
-    to{transform: rotate(0deg)}
+  from {
+    transform: rotate(90deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
 }
-
-.table-of-contents{
-  animation-name: toc-shrink;
-  animation-duration: 0.2s;
+.table-of-contents {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow: hidden;
+  z-index: 3;
+  -webkit-animation-name: toc-shrink;
+          animation-name: toc-shrink;
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
   margin: 0;
   padding: 0;
   width: 30px;
@@ -28,52 +80,68 @@
   overflow: auto;
 }
 .table-of-contents a, .table-of-contents ul {
-    font-family: Arial, Helvetica, sans-serif;
-    font-family: "DOS";
-    text-decoration: none;
-    color:white;
-    padding-right: 10px;
-    list-style: decimal;
+  font-family: Arial, Helvetica, sans-serif;
+  font-family: "DOS";
+  text-decoration: none;
+  color: white;
+  padding-right: 10px;
+  list-style: decimal;
+}
+.table-of-contents a:hover, .table-of-contents ul:hover {
+  color: darkgray;
+}
+.table-of-contents::-webkit-scrollbar {
+  display: none;
+}
+.table-of-contents:hover {
+  -webkit-animation-name: toc-expand;
+          animation-name: toc-expand;
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
+  width: 200px;
+}
+.table-of-contents > * {
+  visibility: hidden;
+}
+.table-of-contents:hover > * {
+  visibility: visible;
+}
+.table-of-contents:before {
+  background-color: white;
+  border-color: #131313;
+  border-width: 0.01px;
+  border-style: solid;
+  margin-top: 5px;
+  margin-left: 5px;
+  content: " ";
+  -webkit-mask-image: url("http://srv.daytheipc.com/public/arrow-icon.svg");
+          mask-image: url("http://srv.daytheipc.com/public/arrow-icon.svg");
+  display: block;
+  -webkit-mask-size: 20px 20px;
+          mask-size: 20px 20px;
+  height: 20px;
+  width: 20px;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  padding-top: 10px;
+  -webkit-animation-name: "arrow-default";
+          animation-name: "arrow-default";
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
+  transform: rotate(0deg);
+}
+.table-of-contents:hover::before {
+  -webkit-animation-name: "arrow-rotateleft";
+          animation-name: "arrow-rotateleft";
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
+  transform: rotate(90deg);
 }
 
-.table-of-contents > *{
-    visibility: hidden
-}
-.table-of-contents:hover{
-    animation-name: toc-expand;
-    animation-duration: 0.2s;
-    width: 200px;
-}
-.table-of-contents:hover > *{
-    visibility: visible
-}
-.table-of-contents::before{
-    background-color: white;
-    border-color: #131313;
-    border-width: 0.01px;
-    border-style: solid;
-    margin-top: 5px;
-    margin-left: 5px;
-    content: " ";
-    mask-image: url("http://srv.daytheipc.com/public/arrow-icon.svg");
-    display: block;
-    mask-size: 20px 20px;
-    height: 20px; width: 20px;
-    mask-repeat: no-repeat;
-    padding-top: 10px;
-    animation-name: "arrow-default";
-    animation-duration: 0.2s;
-    transform: rotate(0deg);
+.md * :not(.table-of-contents, .table-of-contents *), .md div:not(.table-of-contents), table, p {
+  margin-left: 40px;
 }
 
-.table-of-contents:hover::before{
-    animation-name: "arrow-rotateleft";
-    animation-duration: 0.2s;
-    transform: rotate(90deg);
-}
-
-.md * :not(.table-of-contents,.table-of-contents *), .md div:not(.table-of-contents), table, p{
-    margin-left: 40px;
-
-}
-footer {padding-left: 40px}
+footer {
+  padding-left: 40px;
+}/*# sourceMappingURL=toc-sidebar.css.map */
