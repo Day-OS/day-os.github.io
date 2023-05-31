@@ -41,12 +41,73 @@
             border-radius: 3px;
             padding: 0 2px;
         }
-
+        
+    @-webkit-keyframes scanning { 
+    from 
+        { 
+            -webkit-transform: scaleY(40px);
+            -webkit-transform: translateY(-100%); 
+            opacity: 20%;
+        } 
+    to {    
+            opacity: 0;
+            -webkit-transform: scaleY(1px);
+            -webkit-transform: translateY(0%); 
+        } 
+    } 
+    @keyframes blink {
+        from, to { color: blue;}
+        50% { color: white; }
+    }
+    footer{padding-bottom: 1cm;}
+    #sl{
+        opacity: 50%;
+    }
+    #sl2{
+        -webkit-animation-name: scanning; 
+        -webkit-animation-timing-function: linear; 
+        -webkit-animation-iteration-count: infinite; 
+        -webkit-animation-duration: 4s; 
+        opacity: 20%;
+    }
+    img{    
+        pointer-events:none;
+        margin: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    body{
+        color: white;
+        font-family: "DOS";
+        background-color: blue;
+    
+    }
+    h1{
+      font-size: 130%;
+      color:blue;
+      text-align: center;
+      background-color: white;
+    }
+    .wait::after{
+        content:"|";
+        animation: blink .75s step-end infinite; 
+    }
     </style>
 </head>
 
 <body>    
-    <div class="md"></div>
+    <div class="md">
+        <img src="https://srv.daytheipc.com/public/bezel.png" alt="">
+        <img id="sl" src="https://srv.daytheipc.com/public/scanlines.png" alt="">
+        <img id="sl2" src="https://srv.daytheipc.com/public/scanlines.png" alt="">
+        <br><br>
+        <div style="margin-left: 47%; margin-right: 47%;"><h1>DAY0S</h1></div>
+
+        <h2 style="text-align: center;">Under construction!</h2>
+
+        <p style="text-align: center;" class="wait">Please wait...</p>
+    </div>
     
     <footer>
             2022 DaytheIPC<sup style="font-size: 8px;">NOT A TM</sup> - <a href="https://srv.daytheipc.com/wtfpl.txt">WTFPL</a>
